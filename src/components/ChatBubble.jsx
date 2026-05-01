@@ -3,8 +3,8 @@ export default function ChatBubble({ message }) {
 
   return (
     <div
-      className="flex mb-1 bubble-enter"
-      style={{ justifyContent: isUser ? 'flex-end' : 'flex-start' }}
+      className="flex bubble-enter"
+      style={{ marginBottom: '0.75rem', justifyContent: isUser ? 'flex-end' : 'flex-start' }}
     >
       <div style={{ maxWidth: '75%' }}>
         <div
@@ -23,18 +23,6 @@ export default function ChatBubble({ message }) {
           }}
         >
           {message.text}
-        </div>
-        <div
-          style={{
-            fontSize: 11,
-            color: '#667781',
-            textAlign: 'right',
-            marginTop: 2,
-            fontFamily: 'Geist, Arial, sans-serif',
-            paddingRight: 2,
-          }}
-        >
-          {message.timestamp}
         </div>
       </div>
     </div>

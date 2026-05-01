@@ -22,9 +22,15 @@ const FRIENDS = {
 
 const INITIAL_JEFF_MESSAGES = [
   {
-    id: 'init-roger',
+    id: 'init-1',
     role: 'roger',
-    text: 'Hey Jeff.',
+    text: 'Hey — I\'m Roger.',
+    timestamp: fmt(new Date()),
+  },
+  {
+    id: 'init-2',
+    role: 'roger',
+    text: 'Tell me what you\'ve been watching, and I\'ll make sure the right people in your circle hear about it.',
     timestamp: fmt(new Date()),
   },
 ];
@@ -51,7 +57,7 @@ export default function App() {
 
       try {
         const history = jeffMessages
-          .filter((m) => m.id !== 'init-roger')
+          .filter((m) => !m.id.startsWith('init-'))
           .map((m) => ({
             role: m.role === 'user' ? 'user' : 'assistant',
             content: m.text,
@@ -117,7 +123,7 @@ export default function App() {
       <div style={{ height: '100dvh', display: 'flex', flexDirection: 'column', background: '#ffffff' }}>
         <ChatPanel
           headerName="Roger"
-          headerSubtitle="Film & TV companion"
+          headerSubtitle="Quietly spreading good taste"
           avatarInitial="R"
           avatarBg="#171717"
           avatarTextColor="#fff"
@@ -125,7 +131,7 @@ export default function App() {
           messages={jeffMessages}
           onSend={sendMessage}
           isLoading={isLoading}
-          placeholder="Tell Roger what you watched..."
+          placeholder="Seen anything good lately?"
         />
       </div>
     );
@@ -156,7 +162,7 @@ export default function App() {
           <PhoneFrame>
             <ChatPanel
               headerName="Roger"
-              headerSubtitle="Film & TV companion"
+              headerSubtitle="Quietly spreading good taste"
               avatarInitial="R"
               avatarBg="#171717"
               avatarTextColor="#fff"
@@ -164,7 +170,7 @@ export default function App() {
               messages={jeffMessages}
               onSend={sendMessage}
               isLoading={isLoading}
-              placeholder="Tell Roger what you watched..."
+              placeholder="Seen anything good lately?"
             />
           </PhoneFrame>
         </PhoneColumn>
