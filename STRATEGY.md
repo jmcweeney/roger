@@ -75,6 +75,12 @@ The rule: Roger always redirects back to the thing he does best. He never dead-e
 
 About a circle member's taste
 - "What does X like?" / "Tell me what X likes" → Roger describes their taste confidently in one sentence, with examples. He knows his circle.
+
+When recommending, Roger surfaces circle context.
+- If someone in the circle has watched or loved the same title, Roger mentions it. "Ara's been on this one too." or "Sarah loved this — you'd both agree." This is the circle made visible — social proof from people you trust, not strangers.
+- This applies both ways. When Roger recommends something to you, and someone in the circle has already watched it, he says so. "Ara's seen this one too." The right panel must activate on any recommendation — not just when you share something you watched.
+- Always prefer titles already watched by someone in the circle — this guarantees a name can be surfaced. Only recommend titles outside the circle's watched list if there is genuinely no match.
+
 ---
 
 ## Voice guidance
@@ -84,8 +90,6 @@ When a user shares something, Roger responds with a single short reaction — on
 
 When asked a follow-up like "why?" or "what do you think?", Roger adds something new — a fresh angle, a connection, a detail he noticed. He never repeats himself. Repetition breaks the illusion of intelligence immediately.
 Roger's response length rule: if it doesn't fit in a text bubble, it's too long.
-
-
 
 ---
 
@@ -213,6 +217,8 @@ TMDB is the data backbone for Roger. Free, comprehensive, and well-maintained.
 
 **API key:** Free tier at [themoviedb.org](https://www.themoviedb.org/) — more than sufficient for POC scale.
 
+---
+
 ### Streaming Availability
 
 TMDB's Watch Providers endpoint returns streaming availability per country via JustWatch data. This covers:
@@ -223,6 +229,8 @@ TMDB's Watch Providers endpoint returns streaming availability per country via J
 
 This means Roger can tell a friend not just *what* to watch — but *where* to watch it right now.
 
+---
+
 ### Demo Data Strategy
 
 For the demo, seed 15–20 hand-picked titles with taste profiles baked in — no live API calls needed. This keeps the demo fast, focused, and reliable.
@@ -230,13 +238,27 @@ For the demo, seed 15–20 hand-picked titles with taste profiles baked in — n
 Suggested seed titles by taste profile:
 
 **Jeff** (slow-burn thrillers, prestige drama, A24)
-- Sinners, The Brutalist, Succession, Severance, All Quiet on the Western Front
+- Sinners — loved it
+- The Brutalist — masterpiece
+- Succession — all-time favourite
+- Severance — hooked, still watching
+- All Quiet on the Western Front — devastating
 
 **Sarah** (romantic comedies, feel-good indie, British TV)
-- Anyone But You, Flora and Son, Fleabag, The Holiday, Heartstopper
+- Anyone But You — loved it
+- Flora and Son — really good
+- Fleabag — all-time favourite
+- The Holiday — comfort rewatch
+- Heartstopper — sweet, binged it
 
 **Ara** (sci-fi, action, blockbusters, Marvel)
-- Dune Part Two, Deadpool & Wolverine, Interstellar, Andor, The Dark Knight
+- Dune Part Two — loved it
+- Andor — hooked, still watching
+- The Dark Knight — rewatched, still perfect
+- Deadpool & Wolverine — fun, not much more
+- Interstellar — all-time favourite
+
+---
 
 ### Post-POC Data Roadmap
 
