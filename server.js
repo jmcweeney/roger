@@ -2,12 +2,23 @@ import express from 'express';
 import Anthropic from '@anthropic-ai/sdk';
 import { config } from 'dotenv';
 import cors from 'cors';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { existsSync } from 'fs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }));
+
+const isProd = existsSync(join(__dirname, 'dist'));
+if (isProd) {
+  app.use(express.static(join(__dirname, 'dist')));
+} else {
+  app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }));
+}
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -82,6 +93,10 @@ app.post('/api/chat', async (req, res) => {
     res.status(500).json({ error: 'Roger is unavailable right now.' });
   }
 });
+
+if (isProd) {
+  app.get('*', (_req, res) => res.sendFile(join(__dirname, 'dist', 'index.html')));
+}
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

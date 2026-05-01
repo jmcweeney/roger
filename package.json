@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "concurrently \"node server.js\" \"vite --port 5173\"",
     "build": "vite build",
-    "preview": "vite preview",
-    "server": "node server.js"
+    "start": "node server.js",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
