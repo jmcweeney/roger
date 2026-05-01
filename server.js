@@ -98,7 +98,17 @@ if (isProd) {
   app.get('*', (_req, res) => res.sendFile(join(__dirname, 'dist', 'index.html')));
 }
 
+app.get('/api/health', (_req, res) => {
+  res.json({
+    status: 'ok',
+    apiKey: process.env.ANTHROPIC_API_KEY ? 'set' : 'MISSING',
+    isProd,
+  });
+});
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Roger API → http://localhost:${PORT}`);
+  console.log(`ANTHROPIC_API_KEY: ${process.env.ANTHROPIC_API_KEY ? 'set' : 'MISSING ⚠️'}`);
+  console.log(`isProd (dist exists): ${isProd}`);
 });
