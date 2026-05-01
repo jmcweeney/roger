@@ -363,6 +363,8 @@ function CirclePlaceholder() {
         "I just watched Dune Part Two"
         <br />
         "What should I watch tonight?"
+        <br />
+        "What's Sarah been watching?"
       </p>
     </div>
   );
