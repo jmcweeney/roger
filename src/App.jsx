@@ -347,6 +347,23 @@ function CirclePlaceholder() {
         <br />
         He'll find the right person to tell.
       </p>
+      <p
+        style={{
+          color: '#171717',
+          fontSize: 15,
+          fontFamily: 'Geist, Arial, sans-serif',
+          textAlign: 'center',
+          lineHeight: 1.7,
+          margin: 0,
+          fontStyle: 'italic',
+        }}
+      >
+        Try these prompts:
+        <br />
+        "I just watched Dune Part Two"
+        <br />
+        "What should I watch tonight?"
+      </p>
     </div>
   );
 }
