@@ -42,7 +42,7 @@ export default function ChatPanel({
       <div
         ref={scrollRef}
         className="chat-scroll flex-1 px-4 py-3"
-        style={{ background: '#ffffff' }}
+        style={{ background: '#ffffff', overflowX: 'hidden' }}
       >
         {messages.map((msg) => (
           <ChatBubble key={msg.id} message={msg} />

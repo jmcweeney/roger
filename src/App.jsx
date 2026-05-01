@@ -107,12 +107,14 @@ export default function App() {
     [jeffMessages, isLoading]
   );
 
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1023px)') : null;
+  const [isMobile, setIsMobile] = useState(() => mq?.matches ?? false);
 
   useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handler);
-    return () => window.removeEventListener('resize', handler);
+    if (!mq) return;
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
   }, []);
 
   const friend = activeFriend ? FRIENDS[activeFriend] : null;
@@ -120,7 +122,7 @@ export default function App() {
 
   if (isMobile) {
     return (
-      <div style={{ position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', background: '#ffffff' }}>
+      <div style={{ position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', background: '#ffffff', overflow: 'hidden', paddingBottom: 'env(safe-area-inset-bottom)' }}>
         <ChatPanel
           headerName="Roger"
           headerSubtitle="Quietly spreading good taste"
