@@ -329,13 +329,9 @@ function CirclePlaceholder() {
         gap: 20,
       }}
     >
-      <div style={{ display: 'flex', gap: 20 }}>
-        <MiniPerson initial="S" name="Sarah" bg="#e67e22" />
-        <MiniPerson initial="A" name="Ara" bg="#2563eb" />
-      </div>
       <p
         style={{
-          color: '#667781',
+          color: '#171717',
           fontSize: 15,
           fontFamily: 'Geist, Arial, sans-serif',
           textAlign: 'center',
@@ -343,10 +339,12 @@ function CirclePlaceholder() {
           margin: 0,
         }}
       >
-        Tell Roger what you watched.
-        <br />
-        He'll find the right person to tell.
+        Tell Roger what you watched. He'll find the right person to tell — and share what they're watching with you.
       </p>
+      <div style={{ display: 'flex', gap: 20 }}>
+        <MiniPerson initial="S" name="Sarah" bg="#e67e22" />
+        <MiniPerson initial="A" name="Ara" bg="#2563eb" />
+      </div>
       <p
         style={{
           color: '#171717',
