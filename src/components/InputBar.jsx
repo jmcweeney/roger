@@ -49,7 +49,7 @@ export default function InputBar({ onSend, isLoading, placeholder }) {
           outline: 'none',
           borderRadius: 999,
           padding: '0 14px',
-          fontSize: 15,
+          fontSize: 'var(--input-font)',
           fontWeight: 400,
           fontFamily: 'Geist, Arial, sans-serif',
           color: '#171717',

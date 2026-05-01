@@ -12,7 +12,7 @@ export default function ChatBubble({ message }) {
             background: isUser ? '#DCF8C6' : '#ffffff',
             borderRadius: isUser ? '12px 12px 0px 12px' : '12px 12px 12px 0px',
             padding: '8px 12px',
-            fontSize: 15,
+            fontSize: 'var(--bubble-font)',
             fontWeight: 400,
             color: '#171717',
             fontFamily: 'Geist, Arial, sans-serif',

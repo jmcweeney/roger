@@ -120,7 +120,7 @@ export default function App() {
 
   if (isMobile) {
     return (
-      <div style={{ height: '100dvh', display: 'flex', flexDirection: 'column', background: '#ffffff' }}>
+      <div style={{ position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', background: '#ffffff' }}>
         <ChatPanel
           headerName="Roger"
           headerSubtitle="Quietly spreading good taste"

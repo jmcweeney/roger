@@ -14,6 +14,19 @@ html, body, #root {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
+  overscroll-behavior: none;
+}
+
+:root {
+  --bubble-font: 15px;
+  --input-font: 15px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --bubble-font: 18px;
+    --input-font: 16px;
+  }
 }
 
 * {
