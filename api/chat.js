@@ -47,6 +47,10 @@ Respond ONLY with valid JSON, no markdown:
 }`;
 
 export default async function handler(req, res) {
+  if (req.method === 'GET') {
+    return res.json({ status: 'ok', apiKey: process.env.ANTHROPIC_API_KEY ? 'set' : 'MISSING' });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
