@@ -158,7 +158,7 @@ export default function App() {
         }}
       >
         {/* Left — Jeff */}
-        <PhoneColumn label="Jeff" labelColor="#4b5563">
+        <PhoneColumn label="You" labelColor="#4b5563">
           <PhoneFrame>
             <ChatPanel
               headerName="Roger"
@@ -180,7 +180,7 @@ export default function App() {
 
         {/* Right — Nudged friend */}
         <PhoneColumn
-          label={friend ? friend.name : 'The circle'}
+          label={friend ? friend.name : 'Your Circle'}
           labelColor={friend ? friend.avatarBg : '#9ca3af'}
           labelInitial={friend?.initial}
           labelBg={friend?.avatarBg}
@@ -211,7 +211,7 @@ export default function App() {
   );
 }
 
-function PhoneColumn({ label, labelColor, labelInitial, labelBg, children }) {
+function PhoneColumn({ label, labelColor, labelInitial, labelBg, labelSize = 15, children }) {
   return (
     <div
       style={{
@@ -251,7 +251,7 @@ function PhoneColumn({ label, labelColor, labelInitial, labelBg, children }) {
         )}
         <span
           style={{
-            fontSize: 18,
+            fontSize: labelSize,
             fontWeight: 500,
             color: labelColor,
             letterSpacing: '-0.2px',
@@ -317,15 +317,14 @@ function Connector({ active, friend }) {
 function CirclePlaceholder() {
   return (
     <div
+      className="chat-scroll flex-1 px-4 py-3"
       style={{
-        flex: 1,
         background: '#ffffff',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         gap: 20,
-        padding: '0 24px',
       }}
     >
       <div style={{ display: 'flex', gap: 20 }}>
@@ -335,7 +334,7 @@ function CirclePlaceholder() {
       <p
         style={{
           color: '#667781',
-          fontSize: 13,
+          fontSize: 15,
           fontFamily: 'Geist, Arial, sans-serif',
           textAlign: 'center',
           lineHeight: 1.6,
